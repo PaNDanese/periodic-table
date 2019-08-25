@@ -37,6 +37,8 @@
     top=2mm
 }
 \usepackage{graphicx}
+% creative commons icons
+\usepackage{ccicons}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % url stuff                      %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -89,21 +91,21 @@
 \tikzstyle{DetailsLabel} = [minimum height = 2.5cm, inner sep=0pt, text width = 35cm]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% this macro is used to add contents to each 'box' for each ele
+% this macro is used to add contents to each 'box' for each element
 % parameter list is as follows:
 %   #1: symbol 
 %   #2: element name 
 %   #3: atomic_number 
 %   #4: atomic_mass 
-%   #5: electronegativity 
-%   #6: shell occupied by 'last' ground-state electron
-%   #7: subshell occupied by 'last' ground-state electron
+%   #5: electronegativity (not used for 101 branch)
+%   #6: shell occupied by 'last' ground-state electron (not used for 101 branch)
+%   #7: subshell occupied by 'last' ground-state electron (not used for 101 branch)
 \newcommand\periodicelement[7]{%
     \begin{minipage}{22mm}%
         \centering%
-        \par\noindent\parbox[t]{.333\textwidth}{\raggedright\textsf{#3}}%
-        \parbox[t]{.333\textwidth}{\centering\textsf{#5}}%
-        \parbox[t]{.333\textwidth}{\raggedleft \textsf{#6\textit{#7}}}\par%
+        \par\noindent\parbox[t]{.333\textwidth}{\raggedright\textsf{\phantom{#3}}}%
+        \parbox[t]{.333\textwidth}{\centering\textsf{#3}}%
+        \parbox[t]{.333\textwidth}{\raggedleft \textsf{\phantom{#6}\textit{\phantom{#7}}}}\par%
         \vspace*{0.5em}%
         {\Huge #1}\\%
         \vspace*{0.14em}%
@@ -335,8 +337,8 @@
     \periodicbox{Sy}{element}{Z}{saw}{$\chi$}{s}{s}{above of=V,yshift=2.4cm}{}
     \node[right of=Sy, name=keyvalues, KeysLabel, xshift=4.5cm]{
     \textsf{Z: atomic number}\newline 
-    \(\chi\): \textsf{Pauling electronegativity}\newline 
-    \textsf{s\textit{s}: last occupied subshell} \newline 
+    % \(\chi\): \textsf{Pauling electronegativity}\newline 
+    % \textsf{s\textit{s}: last occupied subshell} \newline 
     Sy: \textsf{symbol} \newline 
     \textsf{element: element name}\newline 
     \textsf{saw: standard atomic weight}\char"2020};
@@ -375,8 +377,11 @@
     % details
     \node[below of=Ac, anchor=west, name=details,DetailsLabel,yshift=-1.7cm]{
         \char"2020 Standard atomic weights (average terrestrial atomic weight) taken from the Commission on Isotopic Abundances and Atomic Weights (\url{http://www.ciaaw.org/abridged-atomic-weights.htm}). If CIAAW indicates a range for the standard atomic weight of an element, I used the arithmetic mean of the boundaries of the range. Elements with atomic weight in parentheses (e.g., Francium (223)) have no known stable isotopes. Therefore, the mass of a representative isotope is provided. \\
-        \char"02DA Indicates an anomalous (Aufbau rule-breaking) ground state electron configuration.\\
-        Inspired by Ivan Griffin's \LaTeX\space Periodic Table. Code released under the MIT open source license. \the\year. Paul N. Danese};
+        % \char"02DA Indicates an anomalous (Aufbau rule-breaking) ground state electron configuration.\\
+        Corner images of tRNA were taken from \url{https://commons.wikimedia.org/wiki/User:Yikrazuul} \\
+        Inspired by Ivan Griffin's \LaTeX\space Periodic Table. \LaTeX\space code released under the MIT open source license. \\
+        Final product (the Table) is released under creative commons attribution/share-alike terms. \ccLogo \ccAttribution \ccShareAlike\space \the\year. Paul N. Danese
+    };
     
     \end{tikzpicture}
     
