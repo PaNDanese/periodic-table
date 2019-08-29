@@ -1,29 +1,29 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This was inspired by Ivan Griffin's work on a periodic table
 % (http://www.texample.net/tikz/examples/author/ivan-griffin/)
-% Back in 2015, I adapted/modified Ivan's periodic table to suit 
+% Back in 2015, I adapted/modified Ivan's periodic table to suit
 % my needs for a chemistry class that I taught.
 % What you find here is a complete 're-design.' so I am releasing
 % the re-designed code with a new copyright license.
-% Specifically, this code is distributed under the MIT open source 
+% Specifically, this code is distributed under the MIT open source
 % license.
 % Copyright 2019 Paul N. Danese
-% Permission is hereby granted, free of charge, to any person 
-% obtaining a copy of this software and associated documentation 
-% files (the "Software"), to deal in the Software without 
-% restriction, including without limitation the rights to use, 
-% copy, modify, merge, publish, distribute, sublicense, and/or 
-% sell copies of the Software, and to permit persons to whom the 
-% Software is furnished to do so, subject to the following 
+% Permission is hereby granted, free of charge, to any person
+% obtaining a copy of this software and associated documentation
+% files (the "Software"), to deal in the Software without
+% restriction, including without limitation the rights to use,
+% copy, modify, merge, publish, distribute, sublicense, and/or
+% sell copies of the Software, and to permit persons to whom the
+% Software is furnished to do so, subject to the following
 % conditions:
-% The above copyright notice and this permission notice shall 
+% The above copyright notice and this permission notice shall
 % be included in all copies or substantial portions of the Software.
-% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 % EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 % IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
-% ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
-% CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION 
+% ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+% CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 % WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[9pt]{article}
@@ -91,11 +91,11 @@
 
 % this macro is used to add contents to each 'box' for each element
 % parameter list is as follows:
-%   #1: symbol 
-%   #2: element name 
-%   #3: atomic_number 
-%   #4: atomic_mass 
-%   #5: electronegativity 
+%   #1: symbol
+%   #2: element name
+%   #3: atomic_number
+%   #4: atomic_mass
+%   #5: electronegativity
 %   #6: shell occupied by 'last' ground-state electron
 %   #7: subshell occupied by 'last' ground-state electron
 \newcommand\periodicelement[7]{%
@@ -124,9 +124,9 @@
 
 % this macro is used to add element-specific data to each box.
 % The first 7 parameters are identical to that of \periodicelement
-%    parameter 8 indicates the position of the box relative to 
+%    parameter 8 indicates the position of the box relative to
 %       a previously laid element
-%    parameter 9 is used to set the background color of the box 
+%    parameter 9 is used to set the background color of the box
 \newcommand{\periodicbox}[9]{\node[name=#1, ebox, #8, #9] {\periodicelement{#1}{#2}{#3}{#4}{#5}{#6}{#7}};}
 
 
@@ -143,7 +143,7 @@
     \periodicbox{Rb}{rubidium}{37}{85.468}{0.82}{5}{s}{below of=K}{Sblock}
     \periodicbox{Cs}{caesium}{55}{132.91}{0.79}{6}{s}{below of=Rb}{Sblock}
     \periodicbox{Fr}{francium}{87}{(223)}{\textendash}{7}{s}{below of=Cs}{Sblock}
-    
+
         \periodbox{p1}{H}{1}
         \periodbox{p2}{Li}{2}
         \periodbox{p3}{Na}{3}
@@ -151,11 +151,11 @@
         \periodbox{p5}{Rb}{5}
         \periodbox{p6}{Cs}{6}
         \periodbox{p7}{Fr}{7}
-    
+
     % Here we set the title of the document with some cute ornaments
     \node[anchor=west, name=diagramTitle,scale=1.75,right of=H,xshift=11.25cm,yshift=3cm] {\Huge \pgfornament[scale=0.9,ydelta=-9,color=maroon]{158} \ch{<=>} \textbf{\textit{Periodic Table of the Elements}} \ch{<=>} \pgfornament[color=maroon,symmetry=v,scale=0.9,ydelta=-9]{158} };
-    
-    
+
+
     % Group 2
     \periodicbox{Be}{beryllium}{4}{9.0122}{1.57}{2}{s}{right of=Li}{Sblock}
     \periodicbox{Mg}{magnesium}{12}{24.3055}{1.31}{3}{s}{below of=Be}{Sblock}
@@ -163,84 +163,84 @@
     \periodicbox{Sr}{strontium}{38}{87.62}{0.95}{5}{s}{below of=Ca}{Sblock}
     \periodicbox{Ba}{barium}{56}{137.33}{0.89}{6}{s}{below of=Sr}{Sblock}
     \periodicbox{Ra}{radium}{88}{(226)}{0.9}{7}{s}{below of=Ba}{Sblock}
-    
-    
+
+
     % Group 3
     \periodicbox{Sc}{scandium}{21}{44.956}{1.36}{3}{d}{right of=Ca}{Dblock}
     \periodicbox{Y}{yttrium}{39}{88.906}{1.22}{4}{d}{below of=Sc}{Dblock}
     \periodicbox{*}{lanthanides}{\textcolor{gray!10}{-}}{\textcolor{gray!10}{-}}{\textcolor{gray!10}{-}}{\textcolor{gray!10}{-}}{\textcolor{gray!10}{-}}{below of=Y}{Noblock}
     \periodicbox{**}{actinides}{\textcolor{gray!10}{-}}{\textcolor{gray!10}{-}}{\textcolor{gray!10}{-}}{\textcolor{gray!10}{-}}{\textcolor{gray!10}{-}}{below of=*}{Noblock}
-    
-    
+
+
     % Group 4 Elements
     \periodicbox{Ti}{titanium}{22}{47.867}{1.54}{3}{d}{right of=Sc}{Dblock}
     \periodicbox{Zr}{zirconium}{40}{91.224}{1.33}{4}{d}{below of=Ti}{Dblock}
     \periodicbox{Hf}{hafnium}{72}{178.49}{1.3}{5}{d}{below of=Zr}{Dblock}
     \periodicbox{Rf}{rutherfordium}{104}{(267)}{\textendash}{6}{d}{below of=Hf}{Dblock}
-    
-    
-    
+
+
+
     % Group 5 Elements
     \periodicbox{V}{vanadium}{23}{50.942}{1.63}{3}{d}{right of=Ti}{Dblock}
     \periodicbox{Nb}{niobium}{41}{92.906}{1.6}{4}{d\char"02DA}{below of=V}{Dblock}
     \periodicbox{Ta}{tantalum}{73}{180.95}{1.5}{5}{d}{below of=Nb}{Dblock}
     \periodicbox{Db}{dubnium}{105}{(268)}{\textendash}{6}{d}{below of=Ta}{Dblock}
-    
-    
 
-    
+
+
+
     % Group 6 Elements
     \periodicbox{Cr}{chromium}{24}{51.996}{1.66}{3}{d\char"02DA}{right of=V}{Dblock}
     \periodicbox{Mo}{molybdenum}{42}{95.95}{2.16}{4}{d\char"02DA}{below of=Cr}{Dblock}
     \periodicbox{W}{tungsten}{74}{183.84}{2.36}{5}{d}{below of=Mo}{Dblock}
     \periodicbox{Sg}{seaborgium}{106}{(269)}{\textendash}{6}{d}{below of=W}{Dblock}
-    
-    
-    
+
+
+
     % Group 7 Elements
     \periodicbox{Mn}{manganese}{25}{54.938}{1.55}{3}{d}{right of=Cr}{Dblock}
     \periodicbox{Tc}{technetium}{43}{(97)}{1.9}{4}{d}{below of=Mn}{Dblock}
     \periodicbox{Re}{rhenium}{75}{186.21}{1.9}{5}{d}{below of=Tc}{Dblock}
     \periodicbox{Bh}{bohrium}{107}{(270)}{\textendash}{6}{d}{below of=Re}{Dblock}
-    
-    
-    
+
+
+
     % Group 8 Elements
     \periodicbox{Fe}{iron}{26}{55.845}{1.83}{3}{d}{right of=Mn}{Dblock}
     \periodicbox{Ru}{ruthenium}{44}{101.07}{2.2}{4}{d\char"02DA}{below of=Fe}{Dblock}
     \periodicbox{Os}{osmium}{76}{190.23}{2.2}{5}{d}{below of=Ru}{Dblock}
     \periodicbox{Hs}{hassium}{108}{(269)}{\textendash}{6}{d}{below of=Os}{Dblock}
-    
-    
-    
+
+
+
     % Group 9 Elements
     \periodicbox{Co}{cobalt}{27}{58.933}{1.88}{3}{d}{right of=Fe}{Dblock}
     \periodicbox{Rh}{rhodium}{45}{102.91}{2.28}{4}{d\char"02DA}{below of=Co}{Dblock}
     \periodicbox{Ir}{iridium}{77}{192.22}{2.2}{5}{d}{below of=Rh}{Dblock}
     \periodicbox{Mt}{meitnerium}{109}{(278)}{\textendash}{6}{d}{below of=Ir}{Dblock}
-    
-    
+
+
     % Group 10 Elements
     \periodicbox{Ni}{nickel}{28}{58.693}{1.91}{3}{d}{right of=Co}{Dblock}
     \periodicbox{Pd}{palladium}{46}{106.42}{2.20}{4}{d\char"02DA}{below of=Ni}{Dblock}
     \periodicbox{Pt}{platinum}{78}{195.08}{2.28}{5}{d\char"02DA}{below of=Pd}{Dblock}
     \periodicbox{Ds}{darmstadtium}{110}{(281)}{\textendash}{6}{d}{below of=Pt}{Dblock}
-    
-    
+
+
     % Group 11 Elements
     \periodicbox{Cu}{copper}{29}{63.546}{1.90}{3}{d\char"02DA}{right of=Ni}{Dblock}
     \periodicbox{Ag}{silver}{47}{107.87}{1.93}{4}{d\char"02DA}{below of=Cu}{Dblock}
     \periodicbox{Au}{gold}{79}{196.97}{2.54}{5}{d\char"02DA}{below of=Ag}{Dblock}
     \periodicbox{Rg}{roentgenium}{111}{(282)}{\textendash}{6}{d}{below of=Au}{Dblock}
-    
-    
+
+
     % Group 12 Elements
     \periodicbox{Zn}{zinc}{30}{65.38}{1.65}{3}{d}{right of=Cu}{Dblock}
     \periodicbox{Cd}{cadmium}{48}{112.41}{1.69}{4}{d}{below of=Zn}{Dblock}
     \periodicbox{Hg}{mercury}{80}{200.59}{1.9}{5}{d}{below of=Cd}{Dblock}
     \periodicbox{Cn}{copernicium}{112}{(285)}{\textendash}{6}{d}{below of=Hg}{Dblock}
-    
-    
+
+
     % Group 13 Elements
     \periodicbox{Ga}{gallium}{31}{69.723}{1.81}{4}{p}{right of=Zn}{Pblock}
     \periodicbox{Al}{aluminium}{13}{26.982}{1.61}{3}{p}{above of=Ga}{Pblock}
@@ -248,8 +248,8 @@
     \periodicbox{In}{indium}{49}{114.82}{1.78}{5}{p}{below of=Ga}{Pblock}
     \periodicbox{Tl}{thallium}{81}{204.385}{1.62}{6}{p}{below of=In}{Pblock}
     \periodicbox{Nh}{nihonium}{113}{(286)}{\textendash}{7}{p}{below of=Tl}{Pblock}
-    
-    
+
+
     % Group 14 Elements
     \periodicbox{Ge}{germanium}{32}{72.63}{2.01}{4}{p}{right of=Ga}{Pblock}
     \periodicbox{Si}{silicon}{14}{28.085}{1.90}{3}{p}{above of=Ge}{Pblock}
@@ -257,8 +257,8 @@
     \periodicbox{Sn}{tin}{50}{118.71}{1.96}{5}{p}{below of=Ge}{Pblock}
     \periodicbox{Pb}{lead}{82}{207.2}{1.8}{6}{p}{below of=Sn}{Pblock}
     \periodicbox{Fl}{flerovium}{114}{(289)}{\textendash}{7}{p}{below of=Pb}{Pblock}
-    
-    
+
+
     % Group 15 Elements
     \periodicbox{As}{arsenic}{33}{74.922}{2.18}{4}{p}{right of=Ge}{Pblock}
     \periodicbox{P}{phosphorus}{15}{30.974}{2.19}{3}{p}{above of=As}{Pblock}
@@ -266,8 +266,8 @@
     \periodicbox{Sb}{antimony}{51}{121.76}{2.05}{5}{p}{below of=As}{Pblock}
     \periodicbox{Bi}{bismuth}{83}{208.98}{2.02}{6}{p}{below of=Sb}{Pblock}
     \periodicbox{Mc}{moscovium}{115}{(290)}{\textendash}{7}{p}{below of=Bi}{Pblock}
-    
-    
+
+
     % Group 16 Elements
     \periodicbox{Se}{selenium}{34}{78.971}{2.55}{4}{p}{right of=As}{Pblock}
     \periodicbox{S}{sulfur}{16}{32.0675}{2.58}{3}{p}{above of=Se}{Pblock}
@@ -275,8 +275,8 @@
     \periodicbox{Te}{tellurium}{52}{127.6}{2.1}{5}{p}{below of=Se}{Pblock}
     \periodicbox{Po}{polonium}{84}{(209)}{2.0}{6}{p}{below of=Te}{Pblock}
     \periodicbox{Lv}{livermorium}{116}{(293)}{\textendash}{7}{p}{below of=Po}{Pblock}
-    
-    
+
+
     % Group 17 Elements
     \periodicbox{Br}{bromine}{35}{79.904}{2.96}{4}{p}{right of=Se}{Pblock}
     \periodicbox{Cl}{chlorine}{17}{35.4515}{3.16}{3}{p}{above of=Br}{Pblock}
@@ -284,8 +284,8 @@
     \periodicbox{I}{iodine}{53}{126.9}{2.66}{5}{p}{below of=Br}{Pblock}
     \periodicbox{At}{astatine}{85}{(210)}{2.2}{6}{p}{below of=I}{Pblock}
     \periodicbox{Ts}{tennessine}{117}{(294)}{\textendash}{7}{p}{below of=At}{Pblock}
-    
-    
+
+
     % Group 18 Elements (the snobs)
     \periodicbox{Kr}{krypton}{36}{83.798}{\textendash}{4}{p}{right of=Br}{Pblock}
     \periodicbox{Ar}{argon}{18}{39.8775}{\textendash}{3}{p}{above of=Kr}{Pblock}
@@ -294,8 +294,8 @@
     \periodicbox{Xe}{xenon}{54}{131.29}{2.60}{5}{p}{below of=Kr}{Pblock}
     \periodicbox{Rn}{radon}{86}{(222)}{\textendash}{6}{p}{below of=Xe}{Pblock}
     \periodicbox{Og}{oganesson}{118}{(294)}{\textendash}{7}{p}{below of=Rn}{Pblock}
-    
-    
+
+
     % lanthanides
     \periodicbox{La}{lanthanum}{57}{138.91}{1.1}{5}{d\char"02DA}{below of=**,yshift=-1.3cm}{Dblock}
     \periodicbox{Ce}{cerium}{58}{140.12}{1.12}{4}{f\char"02DA}{right of=La}{Fblock}
@@ -312,8 +312,8 @@
     \periodicbox{Tm}{thulium}{69}{168.93}{1.25}{4}{f}{right of=Er}{Fblock}
     \periodicbox{Yb}{ytterbium}{70}{173.05}{\textendash}{4}{f}{right of=Tm}{Fblock}
     \periodicbox{Lu}{lutetium}{71}{174.97}{1.27}{4}{f}{right of=Yb}{Fblock}
-    
-    
+
+
     % actinides
     \periodicbox{Ac}{actinium}{89}{(227)}{1.1}{6}{d\char"02DA}{below of=La}{Dblock}
     \periodicbox{Th}{thorium}{90}{232.04}{1.3}{5}{f\char"02DA}{right of=Ac}{Fblock}
@@ -330,15 +330,15 @@
     \periodicbox{Md}{mendelevium}{101}{(258)}{1.3}{5}{f}{right of=Fm}{Fblock}
     \periodicbox{No}{nobelium}{102}{(259)}{1.3}{5}{f}{right of=Md}{Fblock}
     \periodicbox{Lr}{lawrencium}{103}{(266)}{\textendash}{6}{d}{right of=No}{Fblock}
-    
+
     % Key explaining contents of each box
     \periodicbox{Sy}{element}{Z}{saw}{$\chi$}{s}{s}{above of=V,yshift=2.4cm}{}
     \node[right of=Sy, name=keyvalues, KeysLabel, xshift=4.5cm]{
-    \textsf{Z: atomic number}\newline 
-    \(\chi\): \textsf{Pauling electronegativity}\newline 
-    \textsf{s\textit{s}: last occupied subshell} \newline 
-    Sy: \textsf{symbol} \newline 
-    \textsf{element: element name}\newline 
+    \textsf{Z: atomic number}\newline
+    \(\chi\): \textsf{Pauling electronegativity}\newline
+    \textsf{s\textit{s}: last occupied subshell} \newline
+    Sy: \textsf{symbol} \newline
+    \textsf{element: element name}\newline
     \textsf{saw: standard atomic weight}\char"2020};
     % manicules calling attention to the key
     \node[anchor=west,left of=Sy,xshift=-40,scale=5]{\char"EA2D };
@@ -363,23 +363,24 @@
     \groupbox{gp16}{16}{above of=O}{}
     \groupbox{gp17}{17}{above of=F}{}
     \groupbox{gp18}{18}{above of=He}{}
-    
-    
+
+
 
     % asterisks
     \offsetterbox{*}{\pendash}{\pendash}{\pendash}{\pendash}{\pendash}{\pendash}{left of=La}{}
-    
+
     \offsetterbox{**}{\pendash}{\pendash}{\pendash}{\pendash}{\pendash}{\pendash}{left of=Ac}{}
-    
-    
+
+
     % details
     \node[below of=Ac, anchor=west, name=details,DetailsLabel,yshift=-1.7cm]{
-        \char"2020 Standard atomic weights (average terrestrial atomic weight) taken from the Commission on Isotopic Abundances and Atomic Weights (\url{http://www.ciaaw.org/abridged-atomic-weights.htm}). If CIAAW indicates a range for the standard atomic weight of an element, I used the arithmetic mean of the boundaries of the range. Elements with atomic weight in parentheses (e.g., Francium (223)) have no known stable isotopes. Therefore, the mass of a representative isotope is provided. \\
+        \char"2020 Standard atomic weights (average terrestrial atomic weight) taken from the Commission on Isotopic Abundances and Atomic Weights (\url{http://www.ciaaw.org/abridged-atomic-weights.htm}). If CIAAW indicates a range for the standard atomic weight of an element, I used the arithmetic mean of the boundaries of the range. Elements with atomic weight in parentheses (e.g., Francium (223)) have no known stable isotopes and it is therefore impossible to provide a standard atomic weight. For these elements, the mass of a representative isotope is provided. \\
         \char"02DA Indicates an anomalous (Aufbau rule-breaking) ground state electron configuration.\\
-        Inspired by Ivan Griffin's \LaTeX\space Periodic Table. Code released under the MIT open source license. \the\year. Paul N. Danese};
-    
+        Inspired by Ivan Griffin's \LaTeX\space Periodic Table. \LaTeX code is released under the MIT open source license.
+        The periodic table itself is released under the creative commons \the\year. Paul N. Danese};
+
     \end{tikzpicture}
-    
+
     % 4 corner angels
     \begin{tikzpicture}[overlay]
     %\node[name=tr,anchor=north west] at (-0.55,.85){\pgfornament[width=2cm,color=maroon]{131}};
@@ -389,13 +390,13 @@
     \node[name=tr,anchor=north west] at (17.8,0.95){\includegraphics[scale=0.07]{trna2}};    %\node[name=tr,anchor=north west] at (18.5,0.850){\pgfornament[width=2cm,color=maroon,]{trna}};
    %\node[name=tr,anchor=north west] at (-7.9,-22.5){\includegraphics[scale=0.4]{sun}};
    %\node[name=tr,anchor=north west] at (17.5,-23.99){\includegraphics[angle=72,origin=c,scale=0.4]{05}};
-   
-%    \node[name=tr,anchor=north west] at (-0.55,-24.65){\pgfornament[width=2cm,color=maroon,symmetry=h]{131}};   
-    
+
+%    \node[name=tr,anchor=north west] at (-0.55,-24.65){\pgfornament[width=2cm,color=maroon,symmetry=h]{131}};
+
      \node[name=tr,anchor=north west] at (-0.75,-23.95){\includegraphics[scale=0.07]{trna4}};
-     
+
      \node[name=tr,anchor=north west] at (17.8,-23.95){\includegraphics[scale=0.07]{trna3}};
-     
+
 %    \node[name=tr,anchor=north west] at (18.5,-24.65){\pgfornament[width=2cm,color=maroon,symmetry=h]{132}};
     \end{tikzpicture}
 \end{document}
