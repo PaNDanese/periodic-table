@@ -260,3 +260,4 @@ TSWLatexianTemp*
 # standalone packages
 *.sta
 desktop.ini
+*.pdf
