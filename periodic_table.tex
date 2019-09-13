@@ -41,6 +41,8 @@
     top=2mm
 }
 \usepackage{graphicx}
+% creative commons icons
+\usepackage{ccicons}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % url stuff                      %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,15 +144,15 @@
 %   #2: element name
 %   #3: atomic_number
 %   #4: atomic_mass
-%   #5: electronegativity
-%   #6: shell occupied by 'last' ground-state electron
-%   #7: subshell occupied by 'last' ground-state electron
+%   #5: electronegativity (not used for 101 branch)
+%   #6: shell occupied by 'last' ground-state electron (not used for 101 branch)
+%   #7: subshell occupied by 'last' ground-state electron (not used for 101 branch)
 \newcommand\periodicelement[7]{%
     \begin{minipage}{22mm}%
         \centering%
-        \par\noindent\parbox[t]{.333\textwidth}{\raggedright\textsf{#3}}%
-        \parbox[t]{.333\textwidth}{\centering\textsf{#5}}%
-        \parbox[t]{.333\textwidth}{\raggedleft \textsf{#6\textit{#7}}}\par%
+        \par\noindent\parbox[t]{.333\textwidth}{\raggedright\textsf{\phantom{#3}}}%
+        \parbox[t]{.333\textwidth}{\centering\textsf{#3}}%
+        \parbox[t]{.333\textwidth}{\raggedleft \textsf{\phantom{#6}\textit{\phantom{#7}}}}\par%
         \vspace*{0.5em}%
         {\Huge #1}\\%
         \vspace*{0.14em}%
@@ -190,7 +192,7 @@
     \periodicbox{Rb}{rubidium}{37}{85.468}{0.82}{5}{s}{below of=K}{Sblock}
     \periodicbox{Cs}{caesium}{55}{132.91}{0.79}{6}{s}{below of=Rb}{Sblock}
     \periodicbox{Fr}{francium}{87}{(223)}{\pendash}{7}{s}{below of=Cs}{Sblock}
-
+    
         \periodbox{p1}{H}{1}
         \periodbox{p2}{Li}{2}
         \periodbox{p3}{Na}{3}
@@ -236,10 +238,6 @@
     \periodicbox{Nb}{niobium}{41}{92.906}{1.6}{4}{d\char"02DA}{below of=V}{Dblock}
     \periodicbox{Ta}{tantalum}{73}{180.95}{1.5}{5}{d}{below of=Nb}{Dblock}
     \periodicbox{Db}{dubnium}{105}{(268)}{\pendash}{6}{d}{below of=Ta}{Dblock}
-
-
-
-
     % Group 6 Elements
     \periodicbox{Cr}{chromium}{24}{51.996}{1.66}{3}{d\char"02DA}{right of=V}{Dblock}
     \periodicbox{Mo}{molybdenum}{42}{95.95}{2.16}{4}{d\char"02DA}{below of=Cr}{Dblock}
@@ -388,6 +386,7 @@
     \textsf{Z: atomic number}\newline
     \(\chi\): \textsf{Pauling electronegativity}\newline
     \textsf{s\textit{s}: last occupied subshell} \newline
+
     Sy: \textsf{symbol} \newline
     \textsf{element: element name}\newline
     \textsf{saw: standard atomic weight}\char"2020};
