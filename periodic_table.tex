@@ -33,7 +33,19 @@
 \setchemfig{atom sep=2.4em, double bond sep=3.5pt, bond style={line width=1.5pt}}
 \usepackage{chemmacros}
 \usepackage{multicol}
+\usepackage{gensymb}
 \usepackage{siunitx}
+\DeclareSIUnit\Molar{\textsc{m}\xspace}
+\DeclareSIUnit{\calorie}{cal}
+\DeclareSIUnit{\fahrenheit}{\degree F}
+\DeclareSIUnit{\atmosphere}{atm}
+\DeclareSIUnit{\pctmv}{\% (m/v)}
+\DeclareSIUnit{\pctvv}{\% (v/v)}
+\DeclareSIUnit{\pctmm}{\% (m/m)}
+\DeclareSIUnit{\mmhg}{\milli \meter Hg}
+\DeclareSIUnit{\torr}{Torr}
+\DeclareSIUnit{\psi}{psi}
+
 \geometry{
     letterpaper,
     left=2mm,
@@ -189,7 +201,8 @@
     \periodicbox{H}{hydrogen}{1}{1.008}{2.20}{1}{s}{below of=blank2}{Sblock}
     \periodicbox{Li}{lithium}{3}{6.9675}{0.98}{2}{s}{below of=H}{Sblock}
     \periodicbox{Na}{sodium}{11}{22.99}{0.93}{3}{s}{below of=Li}{Sblock}
-    \periodicbox{K}{potassium}{19}{39.098}{0.82}{4}{s}{below of=Na}{Sblock}
+    \periodicbox{K}{potas\\
+    	m}{19}{39.098}{0.82}{4}{s}{below of=Na}{Sblock}
     \periodicbox{Rb}{rubidium}{37}{85.468}{0.82}{5}{s}{below of=K}{Sblock}
     \periodicbox{Cs}{caesium}{55}{132.91}{0.79}{6}{s}{below of=Rb}{Sblock}
     \periodicbox{Fr}{francium}{87}{(223)}{\pendash}{7}{s}{below of=Cs}{Sblock}
@@ -452,60 +465,88 @@
 %    \node[name=tr,anchor=north west] at (18.5,-24.65){\pgfornament[width=2cm,color=maroon,symmetry=h]{132}};
     \end{tikzpicture}
 %
-%    \newpage
-%    \newgeometry{left=2.5cm,bottom=2.5cm,top=2.5cm,bottom=2.5cm}
-%    \begin{multicols}{2}
-%        \paragraph{\textsf{Abbreviations:}}
-%        \begin{itemize}
-%            \item \textbf{atm}: atmosphere
-%            \item \textbf{g, mg}: gram, milligram
-%            \item \textbf{K}: Kelvin
-%            \item \textbf{L, mL}: liter, milliliter
-%            \item \textbf{\textsc{M}}: Molar / molarity
-%            \item \textbf{mmHg}: millimeters of mercury
-%            \item \textbf{mol}: mole
-%        \end{itemize}
-%    \vspace{0.5cm}
-%
-%    \paragraph{\textsf{Moles, conversion, pH, and other stuff : \newline}}
-%
-%    \begin{itemize}
-%        \item 1 mole \( = \) \num{6.0221e23} things
-%        \item \( \textrm{Kelvin} = \si{\degreeCelsius} + \num{273.15} \)
-%        \item \( \textrm{\degree F} = 1.8 \times \si{\degreeCelsius} + \num{32} \)
-%        \item \( \si{\degreeCelsius} = \dfrac{(\textrm{\degree F} - \num{32})}{\num{1.8}} \)
-%        \item \( \textrm{pH} = \num{-1} \times  \log [\hydronium{}] \)
-%        \item \( \SI{1000}{\milli \liter} = \SI{1}{\liter} \)
-%        \item \( \grams{1000} = \SI{1}{\kilo \gram} \)
-%        \item \( \SI{1}{\milli \liter} = \SI{1}{\centi \meter \cubed} \)
-%        \item \( \SI{1000}{\calorie} = \SI{1}{\kilo \calorie} \)
-%        \item \( \text{density} = \dfrac{\text{mass}}{\text{volume}}\)
-%    \end{itemize}
-%\vspace{0.5cm}
-%
-%
-%\paragraph{\textsf{Concentration equations:}}
-%
-%\begin{itemize}
-%    \item  \( \si{\pctmm}  = \dfrac{\text{mass of solute}}{\text{mass of solution}} \times \num{100}  \)
-%    \item \(\si{\pctvv} = \dfrac{\text{volume of solute}}{\text{volume of solution}} \times \num{100} \)
-%    \item \(\si{\pctmv}= \dfrac{\text{mass of solute in grams}}{\text{volume of solution in mL}} \times \num{100} \)
-%    \item Molarity \(= \dfrac{\text{number of moles of solute}}{\text{number of Liters of solution}}\)
-%\end{itemize}
-%\vspace{0.5cm}
-%
-%\paragraph{\textsf{Gas equations:}}
-%
-%\begin{itemize}
-%    \item \textbf{Boyle's Law}:    \( \mathrm{P_1 V_1} = \mathrm{P_2 V_2}  \)
-%    \item \textbf{Charles's Law}: \(\dfrac{\mathrm{V_1}}{\mathrm{T_1}} = \mathrm{\dfrac{V_2}{T_2}}\)
-%    \item \textbf{Gay-Lussac's Law}: \(\mathrm{\dfrac{P_1}{T_1} = \dfrac{P_2}{T_2}} \)
-%    \item \textbf{Combined gas Law}: \(\mathrm{\dfrac{P_1 V_1}{T_1} = \dfrac{P_2 V_2}{T_2}} \)
-%    \item \textbf{Avogadro's Law}: \( \mathrm{\dfrac{V_1}{n_1} = \dfrac{V_2}{n_2}} \)
-%    \item \textbf{Universal gas constant}: \( \mathrm{R} = \dfrac{\SI{0.0821}{\liter \atmosphere}}{\si{\mole \kelvin}}  \)
-%    \item \textbf{Ideal gas Law}: \( \mathrm{PV = nRT} \)
-%\end{itemize}
-%\end{multicols}
+    \newpage
+\newgeometry{left=2.5cm,bottom=2.5cm,top=2.5cm,bottom=2.5cm}
+\begin{multicols}{2}
+	\paragraph{\textsf{Abbreviations:}}
+	\begin{itemize}
+		\item \textbf{atm}: atmosphere
+		\item \textbf{g, mg}: gram, milligram
+		\item \textbf{K}: Kelvin
+		\item \textbf{L, mL}: liter, milliliter
+		\item \textbf{\textsc{M}}: Molar / molarity
+		\item \textbf{mmHg}: millimeters of mercury
+		\item \textbf{mol}: mole
+	\end{itemize}
+	\vspace{0.5cm}
+	
+	\paragraph{\textsf{Moles, conversion, pH, and other stuff : \newline}}
+	
+	\begin{itemize}
+		\item 1 mole \( = \) \num{6.0221e23} things
+		\item \( \textrm{Kelvin} = \si{\degreeCelsius} + \num{273.15} \)
+		\item \( \textrm{\degree F} = 1.8 \times \si{\degreeCelsius} + \num{32} \)
+		\item \( \si{\degreeCelsius} = \dfrac{(\textrm{\degree F} - \num{32})}{\num{1.8}} \)
+		\item \( \textrm{pH} = \num{-1} \times  \log [\ch{H3O+}] \)
+		\item \( \SI{1000}{\milli \liter} = \SI{1}{\liter} \)
+		\item \( \SI{1000}{\gram} = \SI{1}{\kilo \gram} \)
+		\item \( \SI{1}{\milli \liter} = \SI{1}{\centi \meter \cubed} \)
+		\item \( \SI{1000}{\calorie} = \SI{1}{\kilo \calorie} \)
+		\item \( \text{density} = \dfrac{\text{mass}}{\text{volume}}\)
+	\end{itemize}
+	\vspace{0.5cm}
+	
+	
+	\paragraph{\textsf{Concentration equations:}}
+	
+	\begin{itemize}
+		\item  \( \si{\pctmm}  = \dfrac{\text{mass of solute}}{\text{mass of solution}} \times \num{100}  \)
+		\item \(\si{\pctvv} = \dfrac{\text{volume of solute}}{\text{volume of solution}} \times \num{100} \)
+		\item \(\si{\pctmv}= \dfrac{\text{mass of solute in grams}}{\text{volume of solution in mL}} \times \num{100} \)
+		\item Molarity \(= \dfrac{\text{number of moles of solute}}{\text{number of Liters of solution}}\)
+	\end{itemize}
+	\vspace{0.5cm}
+	
+	\paragraph{\textsf{Gas equations:}}
+	
+	\begin{itemize}
+		\item \textbf{Boyle's Law}:    \( \mathrm{P_1 V_1} = \mathrm{P_2 V_2}  \)
+		\item \textbf{Charles's Law}: \(\dfrac{\mathrm{V_1}}{\mathrm{T_1}} = \mathrm{\dfrac{V_2}{T_2}}\)
+		\item \textbf{Gay-Lussac's Law}: \(\mathrm{\dfrac{P_1}{T_1} = \dfrac{P_2}{T_2}} \)
+		\item \textbf{Combined gas Law}: \(\mathrm{\dfrac{P_1 V_1}{T_1} = \dfrac{P_2 V_2}{T_2}} \)
+		\item \textbf{Avogadro's Law}: \( \mathrm{\dfrac{V_1}{n_1} = \dfrac{V_2}{n_2}} \)
+		\item \textbf{Universal gas constant}: \( \mathrm{R} = \dfrac{\SI{0.0821}{\liter \atmosphere}}{\si{\mole \kelvin}}  \)
+		\item \textbf{Ideal gas Law}: \( \mathrm{PV = nRT} \)
+	\end{itemize}
+	
+	
+\end{multicols}
+
+\paragraph{\textsf{Mole Conversions:}}
+\begin{itemize}
+	\item number of grams \( \Rightarrow \) number of moles: take number of grams \( \div \) molar mass
+	\item number of moles \( \Rightarrow \) number of grams: take number of moles \( \times \) molar mass
+	\item number of moles \( \Rightarrow \) number of atoms (or molecules): take number of moles \( \times \) \num{6.0221e23}
+	\item number of atoms (or molecules) \( \Rightarrow \) number of moles: take number of atoms (or molecules) \( \div \) (\num{6.0221e23})
+\end{itemize}
+
+\paragraph{\textsf{Organic:}}
+
+\begin{multicols}{2}
+	
+	\begin{enumerate}
+		\item meth
+		\item eth
+		\item prop
+		\item but
+		\item pent
+		\item hex
+		\item hept
+		\item oct
+		\item non
+		\item dec
+	\end{enumerate}
+\end{multicols}
 \end{document}
 
 
