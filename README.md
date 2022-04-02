@@ -1,4 +1,4 @@
-# nperiodic_table
+# periodic_table
 
 Slightly improved rendering of periodic table.
 
